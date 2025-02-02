@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  p {
+    @apply text-sm text-default-text;
+  }
+}
+form {
+  @apply rounded-xl p-4;
+}
+label {
+  @apply mt-4;
+}
+input,
+textarea,
+select {
+  @apply m-1 rounded bg-card p-1;
+}
+
+@layer components {
+  .icon {
+    @apply text-default-text text-xl;
+  }
+  .btn {
+    @apply hover:no-underline bg-blue-accent hover:bg-blue-accent-hover tracking-wider w-full text-center font-bold text-nav uppercase px-4 py-2 rounded-md cursor-pointer transition-colors block;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
