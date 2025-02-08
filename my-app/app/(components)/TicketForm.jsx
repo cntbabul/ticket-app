@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-const TicketForm = () => {
+const TicketForm = ({ticket}) => {
+  // const EDITMODE = ticket._id === "new" ? false : true;
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -37,6 +38,17 @@ const TicketForm = () => {
     status: "not started",
     category: "development",
   };
+
+  // if (EDITMODE) {
+  //   startingTicketData["title"] = ticket.title;
+  //   startingTicketData["description"] = ticket.description;
+  //   startingTicketData["priority"] = ticket.priority;
+  //   startingTicketData["progress"] = ticket.progress;
+  //   startingTicketData["status"] = ticket.status;
+  //   startingTicketData["category"] = ticket.category;
+  // }
+
+
   const [formData, setFormData] = useState(startingTicketData);
   return (
     <div className="flex justify-center">
@@ -138,8 +150,8 @@ const TicketForm = () => {
         <label>Status</label>
         <select name="status" value={formData.status} onChange={handleChange}>
           <option value="not started">Not Started</option>
-          <option value="in progress">In Progress</option>
-          <option value="completed">Completed</option>
+          <option value="started">In Progress</option>
+          <option value="done">Completed</option>
         </select>
         <input type="submit" className="btn " value="Create Ticket" />
       </form>
